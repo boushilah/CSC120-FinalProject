@@ -1,10 +1,9 @@
-import java.util.ArrayList;
 
 public class Student {
     // Attributes 
     private String name; 
     private int classYear; 
-    private ArrayList<Course> classes; 
+    //private ArrayList<Course> classes; 
     /**
      * 
      * @param name takes the name of the student
@@ -23,6 +22,8 @@ public class Student {
         return this.name; 
     }
     public void observe(){
+        //
+        //System.out.println("In this room there's:"+ Student.getName());
         // method to observe everyone in the room.
     }
     public void converse(){

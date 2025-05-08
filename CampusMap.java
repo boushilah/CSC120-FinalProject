@@ -1,22 +1,22 @@
 import java.util.ArrayList;
 
 public class CampusMap {
-
+    public String address;
     ArrayList<Building> buildings;
 
     /* Default constructor, initializes empty ArrayList */
     public CampusMap() {
         buildings = new ArrayList<Building>();
     }
-
+    public String getAddress(){
+        return this.address;
+    }
     /**
      * Adds a Building to the map
      * @param b the Building to add
      */
     public void addBuilding(Building b) {
-        System.out.println("Adding building...");
         buildings.add(b);
-        System.out.println("-->Successfully added " + b.getName() + " to the map.");
     }
 
     public String toString() {
@@ -25,30 +25,20 @@ public class CampusMap {
         for (int i = 0; i < this.buildings.size(); i ++) {
             mapString += "\n  " + (i+1) + ". "+ this.buildings.get(i).getName() + " (" + this.buildings.get(i).getAddress() + ")";
         }
+        System.out.println("To go into a building, remember to type 'go' to make a choice\n");
         return mapString;
     }
-   
-    public void showOptions() {
-    for( Building b: buildings){
-    System.out.println(" In "+b.getName()+" you can choose the following options:");
-    b.showOptions();
+    /**
+     * It displays the name of the building.
+     * @param name name of a building
+     * @return the name of the building passed.
+     */
+    public Building getBuildingByName(String name) {
+        for (Building b : buildings) {
+            if (b.getName().equalsIgnoreCase(name)) {
+                return b;
+            }
         }
+        return null;
     }
-    
-
-    public static void main(String[] args) {
-        CampusMap myMap = new CampusMap();
-        myMap.addBuilding(new Building("Ford Hall", "100 Green Street Northampton, MA 01063"));
-        myMap.addBuilding(new Building("Bass Hall", "4 Tyler Court Northampton, MA 01063"));
-        myMap.addBuilding(new Building("Cutter House","10 Prospect Street"));
-        myMap.addBuilding(new Building("Ziskind House"," 10 Elm Street"));
-        myMap.addBuilding(new Building("Chase House","45 Elm Street"));
-        myMap.addBuilding(new House("King House","7 King Drive",1));
-        myMap.addBuilding(new House("Baldwin","34 Main Street",5,90));
-        myMap.addBuilding(new House("Capin","3 Neilson Drive",4,true,50));
-        myMap.addBuilding(new Cafe("Neilson Cafe","7 Neilson Drive",40,20,20,20));
-        myMap.addBuilding(new Library("Hillyer Art Library","22 Elm Street",2));
-        System.out.println(myMap);
-    }
-    
 }

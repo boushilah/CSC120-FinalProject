@@ -20,10 +20,10 @@ public class Course {
     public String toString() {
         return this.category + ": " + this.majorName; 
     }
-
+/*
     public static void main(String[] args) {
         Course CSC = new Course("CS" , "STEM");
         System.out.println(CSC);
     }
-    
+*/   
 }
